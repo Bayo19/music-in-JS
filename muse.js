@@ -1,4 +1,4 @@
-let vol = new Tone.Volume(-12).toMaster()
+let vol = new Tone.Volume(-10).toMaster()
 let polySynth = new Tone.PolySynth(3, Tone.FMSynth)
 polySynth.connect(vol)
 
@@ -13,11 +13,12 @@ let p1 = new Tone.Players({
 p1.connect(vol)
 
 let chords = [
-    ['C3', 'E4', 'B3'],
-    ['B2', 'G4', 'D4'],
-    ['D3', 'F4', 'C4'],
-    ['A2', 'G4', 'B4'],
+    ['C3', 'E4', 'B3', 'G4'],
+    ['B2', 'G4', 'D4', 'E4'],
+    ['D3', 'F4', 'C4', 'D4'],
+    ['A2', 'G4', 'B4', 'E4'],
 ]
+
 
 
 
@@ -49,8 +50,9 @@ let play = document.getElementById('go').addEventListener('click', function() {
         }
         if (chordIndex >= 0) {
             polySynth.triggerAttackRelease(chords[chordIndex][0], '16n')
-            polySynth.triggerAttackRelease(chords[chordIndex][1], '16n', '+8n')
+            polySynth.triggerAttackRelease(chords[chordIndex][1], '16n', '+16n')
             polySynth.triggerAttackRelease(chords[chordIndex][2], '16n', '+8n')
+            polySynth.triggerAttackRelease(chords[chordIndex][3], '16n', '+4n')
         }
 
         p1.get('hihat').start()
