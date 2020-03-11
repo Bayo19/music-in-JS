@@ -19,16 +19,10 @@ let chords = [
     ['A2', 'G4', 'B4', 'E4'],
 ]
 
-
-
-
 let play = document.getElementById('go').addEventListener('click', function() {
-
 
     Tone.context.latencyHint = 'fastest'
     Tone.Transport.bpm.value = 120
-
-
 
     let seq = new Tone.Sequence(function(time, idx) {
         if ([0, 4, 8, 12].indexOf(idx) >= 0) {
@@ -60,8 +54,6 @@ let play = document.getElementById('go').addEventListener('click', function() {
 
     Tone.Transport.start('+0.2') // start 0.20 seconds after play
     seq.start()
-
-
 
     let stop = document.getElementById('stop')
     stop.addEventListener('click', function() {
